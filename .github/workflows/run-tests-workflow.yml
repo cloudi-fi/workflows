@@ -55,7 +55,7 @@ jobs:
           ${{ runner.os }}-php-
 
     - name: Install Dependencies
-      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      run: composer install --no-scripts --prefer-dist
       env:
         COMPOSER_AUTH: '{"github-oauth": {"github.com": "${{ secrets.token }}"}}'
     
