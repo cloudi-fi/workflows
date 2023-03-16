@@ -65,6 +65,9 @@ jobs:
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-php-
+    
+    - name: Debug
+      run: ls -la
 
     - name: Install Dependencies
       run: composer install --no-scripts --prefer-dist
