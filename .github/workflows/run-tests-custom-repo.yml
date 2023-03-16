@@ -55,6 +55,7 @@ jobs:
       with:
         repository: ${{ inputs.repository }}
         token: ${{ secrets.token }}
+        path: ${{ inputs.repository }}
 
     - name: Cache Composer packages
       id: composer-cache
