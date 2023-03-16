@@ -55,7 +55,6 @@ jobs:
       with:
         repository: ${{ inputs.repository }}
         token: ${{ secrets.token }}
-        path: ${{ inputs.repository }}
 
     - name: Cache Composer packages
       id: composer-cache
@@ -67,7 +66,9 @@ jobs:
           ${{ runner.os }}-php-
     
     - name: Debug
-      run: ls -la
+      run: |
+        pwd
+        ls -la      
 
     - name: Install Dependencies
       run: composer install --no-scripts --prefer-dist
