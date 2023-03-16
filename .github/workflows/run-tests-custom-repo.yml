@@ -7,6 +7,10 @@ on:
         description: Path to the GitHub repository for which to run tests
         required: true
         type: string
+      path:
+        description: Local path on the runner for the custom repository checkout
+        required: true
+        type: string
       command:
         description: The command that the workflow should run
         default: vendor/bin/phpunit -c phpunit.xml.dist
