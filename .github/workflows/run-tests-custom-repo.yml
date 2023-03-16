@@ -52,8 +52,9 @@ jobs:
         php-version: '8.0'
 
     - uses: actions/checkout@v3
-      with:
+      with:        
         repository: ${{ inputs.repository }}
+        path: ${{ inputs.repository }}
         token: ${{ secrets.token }}
 
     - name: Cache Composer packages
