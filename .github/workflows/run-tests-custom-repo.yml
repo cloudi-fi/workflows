@@ -68,7 +68,8 @@ jobs:
     - name: Debug
       run: |
         pwd
-        ls -la      
+        ls -la
+        cat composer.json
 
     - name: Install Dependencies
       run: composer install --no-scripts --prefer-dist
