@@ -1,14 +1,10 @@
-name: Run test with custom repository checkout 
+name: Run test with custom repository checkout
 
 on:
   workflow_call:
     inputs:
       repository:
         description: Path to the GitHub repository for which to run tests
-        required: true
-        type: string
-      path:
-        description: Local path on the runner for the custom repository checkout
         required: true
         type: string
       command:
@@ -52,7 +48,7 @@ jobs:
         php-version: '8.0'
 
     - uses: actions/checkout@v3
-      with:        
+      with:
         repository: ${{ inputs.repository }}
         token: ${{ secrets.token }}
 
@@ -64,7 +60,7 @@ jobs:
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-php-
-    
+
     - name: Debug
       run: |
         pwd
@@ -75,7 +71,7 @@ jobs:
       run: composer install --no-scripts --prefer-dist
       env:
         COMPOSER_AUTH: '{"github-oauth": {"github.com": "${{ secrets.token }}"}}'
-    
+
     - name: Clean working directory
       run: git clean -df && git checkout .
 
